@@ -4,8 +4,7 @@ namespace Hermes.Helpers
 {
     public interface IEventMessageStack
     {
-        IObservable<EventMessage> GetAll();
+        IObservable<EventMessage> GetEventMessageSubject();
         EventMessage AddEventMessage(EventMessage eventMessage);
-        ConcurrentStack<EventMessage> AllEventMessages { get; }
     }
 }

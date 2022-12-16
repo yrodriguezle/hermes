@@ -1,31 +1,22 @@
 ﻿
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
-using System.Collections.Concurrent;
 
 namespace Hermes.Helpers
 {
     public class EventMessageStack : IEventMessageStack
     {
-        private readonly ISubject<EventMessage> _messageStream = new ReplaySubject<EventMessage>(1);
-        public ConcurrentStack<EventMessage> AllEventMessages { get; }
-        public EventMessageStack()
-        {
-            AllEventMessages = new ConcurrentStack<EventMessage>();
-        }
+        private readonly ISubject<EventMessage> _messageStream = new Subject<EventMessage>();
+        
+        public EventMessageStack() {}
 
-        public IObservable<EventMessage> GetAll()
+        public IObservable<EventMessage> GetEventMessageSubject()
         {
-            return _messageStream.Select(entity =>
-            {
-                return entity;
-            })
-                .AsObservable();
+            return _messageStream.AsObservable();
         }
 
         public EventMessage AddEventMessage(EventMessage entityDetails)
         {
-            AllEventMessages.Push(entityDetails);
             _messageStream.OnNext(entityDetails);
             return entityDetails;
         }

@@ -10,11 +10,13 @@
 [data-theme="light"] {
   --cloudRed: #d32f2f;
   --neutralLighterAlt: #faf9f8;
+  --border: #d0d4d6;
 }
 
 [data-theme="dark"] {
   --cloudRed: #ef5350;
   --neutralLighterAlt: #1e1e1e;
+  --border: #1e1e1e;
 }
 
 body {
@@ -69,4 +71,12 @@ code {
 
 .st2 {
   fill: #FFFFFF;
+}
+
+.header-bar {
+  box-shadow: none;
+  border-bottom: 1px solid var(--border);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  background-color: rgba(248, 249, 250, .7);
 }

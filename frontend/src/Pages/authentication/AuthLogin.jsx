@@ -93,7 +93,7 @@ function AuthLogin() {
           <div className="box" style={{ background: 'transparent' }}>
             <img width={60} src={hermesBackgound} alt="" />
             <Typography component="h1" variant="h5" sx={{ marginLeft: 1, fontFamily: 'Anton' }}>
-              Hermes CRM
+              Hermes ERP
             </Typography>
           </div>
           <Formik

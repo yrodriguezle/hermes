@@ -4,8 +4,6 @@ using GraphQL.Types;
 
 using Hermes.Helpers;
 using Hermes.Models;
-using System;
-
 
 namespace Hermes.GraphQL
 {
@@ -46,7 +44,7 @@ namespace Hermes.GraphQL
                     }),
                 StreamResolver = new SourceStreamResolver<EventMessage>(context =>
                 {
-                    return _eventMessagesStack.GetAll();
+                    return _eventMessagesStack.GetEventMessageSubject();
                 })
             });
         }
