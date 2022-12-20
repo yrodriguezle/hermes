@@ -35,18 +35,6 @@ function TextField({
     caretSelection.current = null;
   }, []);
 
-  // useEffect(() => {
-  //   if (inputRef.current && caretSelection.current) {
-  //     const { selectionStart, selectionEnd } = inputRef.current;
-  //     const update = (caretSelection.current.start !== false && caretSelection.current?.start !== selectionStart)
-  //       || (caretSelection.current.end !== false && caretSelection.current.end !== selectionEnd);
-  //     if (update) {
-  //       inputRef.current.setSelectionStart(caretSelection.current.start);
-  //       inputRef.current.setSelectionEnd(caretSelection.current.end);
-  //     }
-  //   }
-  // }, [innerValue]);
-
   useEffect(() => {
     setInnerValue(value);
   }, [value]);
